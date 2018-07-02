@@ -84,6 +84,8 @@ public class WebhookEvents implements Module {
     public void execute(final ExecutionParameters parameters) {
         final JsonObject body = parameters.getMessage().getBody();
 
+        logger.info(parameters.getMessage().toString());
+
         final JsonArray events = body.getJsonArray("mandrill_events");
 
         if (events == null) {
