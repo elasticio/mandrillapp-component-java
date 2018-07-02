@@ -1,0 +1,205 @@
+{
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "string",
+      "required": true,
+      "title": "Event"
+    },
+    "ts": {
+      "type": "number",
+      "required": false,
+      "title": "Timestamp"
+    },
+    "msg": {
+      "type": "object",
+      "properties": {
+        "ts": {
+          "type": "number",
+          "required": false,
+          "title": "Message Timestamp"
+        },
+        "subject": {
+          "type": "string",
+          "required": false,
+          "title": "Message Subject"
+        },
+        "email": {
+          "type": "string",
+          "required": false,
+          "title": "Message Email"
+        },
+        "sender": {
+          "type": "string",
+          "required": false,
+          "title": "Message Sender"
+        },
+        "tags": {
+          "type": "string",
+          "required": false,
+          "title": "Message Tags"
+        },
+        "state": {
+          "type": "string",
+          "required": false,
+          "title": "Message State"
+        },
+        "_id": {
+          "type": "string",
+          "required": false,
+          "title": "Message Id"
+        },
+        "_version": {
+          "type": "string",
+          "required": false,
+          "title": "Message Version"
+        }
+      }
+    },
+    "_id": {
+      "type": "string",
+      "required": true,
+      "title": "Id"
+    },
+    "ip": {
+      "type": "string",
+      "required": false,
+      "title": "Ip"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "country_short": {
+          "type": "string",
+          "required": false,
+          "title": "Country Short"
+        },
+        "country": {
+          "type": "string",
+          "required": false,
+          "title": "Country"
+        },
+        "region": {
+          "type": "string",
+          "required": false,
+          "title": "Region"
+        },
+        "city": {
+          "type": "string",
+          "required": false,
+          "title": "City"
+        },
+        "latitude": {
+          "type": "number",
+          "required": false,
+          "title": "Latitude"
+        },
+        "longitude": {
+          "type": "number",
+          "required": false,
+          "title": "Longitude"
+        },
+        "postal_code": {
+          "type": "string",
+          "required": false,
+          "title": "Postal Code"
+        },
+        "timezone": {
+          "type": "string",
+          "required": false,
+          "title": "Timezone"
+        }
+      }
+    },
+    "user_agent": {
+      "type": "string",
+      "required": false,
+      "title": "User Agent"
+    },
+    "user_agent_parsed": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "required": false,
+          "title": "Type"
+        },
+        "ua_family": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Family"
+        },
+        "ua_name": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Name"
+        },
+        "ua_version": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Version"
+        },
+        "ua_url": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Url"
+        },
+        "ua_company": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Company"
+        },
+        "ua_company_url": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Company Url"
+        },
+        "ua_icon": {
+          "type": "string",
+          "required": false,
+          "title": "Ua Icon"
+        },
+        "os_family": {
+          "type": "string",
+          "required": false,
+          "title": "OS Family"
+        },
+        "os_name": {
+          "type": "string",
+          "required": false,
+          "title": "OS Name"
+        },
+        "os_url": {
+          "type": "string",
+          "required": false,
+          "title": "OS Url"
+        },
+        "os_company": {
+          "type": "string",
+          "required": false,
+          "title": "OS Company"
+        },
+        "os_company_url": {
+          "type": "string",
+          "required": false,
+          "title": "OS Company Url"
+        },
+        "os_icon": {
+          "type": "string",
+          "required": false,
+          "title": "OS Icon"
+        },
+        "mobile": {
+          "type": "boolean",
+          "required": false,
+          "title": "Mobile"
+        }
+      }
+    },
+    "url": {
+      "type": "string",
+      "required": false,
+      "title": "Url"
+    }
+  }
+}

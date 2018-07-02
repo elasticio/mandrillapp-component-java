@@ -1,0 +1,23 @@
+{
+  "title": "Mandrill",
+  "description": "Mandrill is a scalable and affordable email infrastructure service.",
+  "credentials": {
+    "fields": {
+      "apiKey": {
+        "label": "API key",
+        "required": true,
+        "viewClass": "TextFieldView"
+      }
+    }
+  },
+  "triggers": {
+    "receiveWebhookEvents": {
+      "main": "io.elastic.mandrill.triggers.WebhookEvents",
+      "title": "Receive Webhook Events",
+      "description": "Receives incoming e-mail via WebHooks from Mandrill API",
+      "metadata": {
+        "out": "./schemas/receiveWebhookEvents.out.json"
+      }
+    }
+  }
+}
