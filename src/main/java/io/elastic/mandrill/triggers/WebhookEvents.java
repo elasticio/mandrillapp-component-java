@@ -86,11 +86,13 @@ public class WebhookEvents implements Module {
 
         logger.info(parameters.getMessage().toString());
 
-        final JsonArray events = body.getJsonArray("mandrill_events");
+        final String mandrillEvents = body.getString("mandrill_events");
 
-        if (events == null) {
+        if (mandrillEvents == null) {
             throw new IllegalStateException("Message with mandrill_events is expected but not found");
         }
+
+        final JsonArray events = JSON.parseArray(mandrillEvents);
 
         final int eventsCount = events.size();
 
