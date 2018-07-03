@@ -86,7 +86,7 @@ public class WebhookEvents implements Module {
 
         logger.info(parameters.getMessage().toString());
 
-        if (!body.containsValue("mandrill_events")) {
+        if (!body.containsKey("mandrill_events")) {
             logger.info("Message has not mandrill events. Skipping it.");
             return;
         }
