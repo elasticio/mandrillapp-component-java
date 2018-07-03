@@ -10,8 +10,6 @@ import javax.json.*;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 
 public class WebhookEvents implements Module {
 
@@ -94,13 +92,7 @@ public class WebhookEvents implements Module {
             throw new IllegalStateException("Message with mandrill_events is expected but not found");
         }
 
-        final String decoded;
-        try {
-            decoded = URLDecoder.decode(mandrillEvents, "utf8");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
-        final JsonArray events = JSON.parseArray(decoded);
+        final JsonArray events = JSON.parseArray(mandrillEvents);
 
         final int eventsCount = events.size();
 
