@@ -14,7 +14,7 @@
     "receiveWebhookEvents": {
       "main": "io.elastic.mandrill.triggers.WebhookEvents",
       "title": "Receive Webhook Events",
-      "description": "Receives incoming e-mail via WebHooks from Mandrill API",
+      "description": "Receives incoming e-mail via WebHook notifications from Mandrill API",
       "metadata": {
         "out": "./schemas/receiveWebhookEvents.out.json"
       }
