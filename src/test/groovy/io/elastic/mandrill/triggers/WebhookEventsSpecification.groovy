@@ -33,7 +33,7 @@ class WebhookEventsSpecification extends Specification {
         driver.addExpectation(
                 onRequestTo(Constants.MANDRILL_API_WEBBHOOKS_ADD_PATH)
                         .withMethod(ClientDriverRequest.Method.POST)
-                        .withBody(equalToIgnoringCase('{"key":"super-secret","url":"http://example/webhook-url"}'), "application/json"),
+                        .withBody(equalToIgnoringCase('{"key":"super-secret","url":"http://example/webhook-url","events":["send","open","click"]}'), "application/json"),
                 giveResponse(
                         JSON.stringify(webhookResponse),
                         'application/json')
