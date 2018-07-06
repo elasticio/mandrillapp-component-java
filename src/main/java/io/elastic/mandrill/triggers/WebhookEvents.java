@@ -19,6 +19,8 @@ public class WebhookEvents implements Module {
 
     @Override
     public JsonObject startup(final StartupParameters parameters) {
+        logger.info("About to subscribe for event notifications from Mandrill");
+
         final JsonObject configuration = parameters.getConfiguration();
         final String apiKey = configuration.getString(Constants.CONFIGURATION_API_KEY);
 
@@ -34,9 +36,16 @@ public class WebhookEvents implements Module {
 
         logger.info("About to add the webhook for uri={}", webhookUri);
 
+        final JsonArray events = Json.createArrayBuilder()
+                .add("send")
+                .add("open")
+                .add("click")
+                .build();
+
         final JsonObject requestBody = Json.createObjectBuilder()
                 .add("key", apiKey)
                 .add("url", webhookUri)
+                .add("events", events)
                 .build();
 
         final JsonObject webhook = ClientBuilder.newClient()
@@ -70,12 +79,16 @@ public class WebhookEvents implements Module {
                 .add(ID, id)
                 .build();
 
-        final JsonObject webhook = ClientBuilder.newClient()
+        final JsonObject response = ClientBuilder.newClient()
                 .target(getMandrillApiBaseURL())
                 .path(Constants.MANDRILL_API_WEBBHOOKS_DELETE_PATH)
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .post(Entity.entity(requestBody, MediaType.APPLICATION_JSON))
                 .readEntity(JsonObject.class);
+
+        if (response.containsKey("status") && response.getString("status") == "error") {
+            throw new IllegalStateException(response.getString("message"));
+        }
 
         logger.info("Successfully deleted the webhook with id={}", id);
     }
